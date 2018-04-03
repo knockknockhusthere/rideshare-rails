@@ -5,7 +5,7 @@ puts "Loading raw driver data from #{DRIVER_FILE}"
 
 driver_failures = []
 CSV.foreach(DRIVER_FILE, :headers => true) do |row|
-  driver = Driver.new 
+  driver = Driver.new
   driver.id = row['id']
   driver.name = row['name']
   driver.vin = row['vin']
