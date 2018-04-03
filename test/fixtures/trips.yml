@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 
+  driver_id: 
+  passenger_id: 
+  rating: 
+  cost: 
+
+two:
+  id: 
+  driver_id: 
+  passenger_id: 
+  rating: 
+  cost: 
