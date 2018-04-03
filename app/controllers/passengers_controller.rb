@@ -4,9 +4,15 @@ class PassengersController < ApplicationController
   end
 
   def new
+    @passenger = Passenger.new
   end
 
   def create
+    passenger = Passenger.new(driver_params)
+
+    if passenger.save
+      redirect_to passengers_path
+    end
   end
 
   def show

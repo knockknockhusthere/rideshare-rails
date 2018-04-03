@@ -4,9 +4,15 @@ class TripsController < ApplicationController
   end
 
   def new
+    @trip = Trip.new
   end
 
   def create
+    trip = Trip.new(driver_params)
+
+    if trip.save
+      redirect_to trips_path
+    end
   end
 
   def show

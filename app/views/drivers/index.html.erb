@@ -1,10 +1,9 @@
 <h3> Driver's Page</h3>
 
-<%= form_for @driver do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-
-<%= f.label :vin %>
-<%= f.number_field :vin %>
-<%= f.submit %>
+<ul>
+<% @drivers.each do |driver| %>
+  <li>
+    <strong><%= driver.name %></strong>
+  </li>
 <% end %>
+</ul>
