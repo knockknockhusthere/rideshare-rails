@@ -1,0 +1,9 @@
+<h2> Passengers List</h2>
+
+<ul>
+<% @passengers.each do |passenger| %>
+  <li>
+    <strong><%= passenger.name %></strong>
+  </li>
+<% end %>
+</ul>

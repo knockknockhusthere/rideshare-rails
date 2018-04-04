@@ -1,6 +1,6 @@
 class PassengersController < ApplicationController
   def index
-    @passenger = Passenger.all
+    @passengers = Passenger.all
   end
 
   def new
@@ -8,7 +8,7 @@ class PassengersController < ApplicationController
   end
 
   def create
-    passenger = Passenger.new(driver_params)
+    passenger = Passenger.new(passenger_params)
 
     if passenger.save
       redirect_to passengers_path
