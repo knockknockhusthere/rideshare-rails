@@ -16,6 +16,7 @@ class PassengersController < ApplicationController
   end
 
   def show
+    passenger = params[:id]
   end
 
   def edit
