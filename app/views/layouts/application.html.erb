@@ -9,6 +9,18 @@
   </head>
 
   <body>
+    <header>
+      <h1>RideShare Program</h1>
+      <nav>
+        <ul>
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "All Drivers", drivers_path %></li>
+          <li><%= link_to "All Passengers", passengers_path %></li>
+          <li><%= link_to "Add Driver", new_driver_path %></li>
+          <li><%= link_to "Add Passenger", new_passenger_path %></li>
+        </ul>
+      </nav>
+    </header>
     <%= yield %>
   </body>
-</html>
+  </html>
