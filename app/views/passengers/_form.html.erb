@@ -1,11 +1,14 @@
-<h3> New Passenger</h3>
-<%= link_to "Home", root_path %>
+<h4>
+  <% page_title ||= "Passengers Love to Ride!" %>
+  <%= page_title %>
+</h4>
 
 <%= form_for @passenger do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %>
 
-<%= f.label :phone_num %>
+<%= f.label :phone_number %>
 <%= f.number_field :phone_num %>
+
 <%= f.submit %>
 <% end %>

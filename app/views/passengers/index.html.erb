@@ -1,9 +1,11 @@
 <h2> Passengers List</h2>
-<%= link_to "Home", root_path %>
+
 <ul>
 <% @passengers.each do |passenger| %>
   <li>
-    <strong><%= passenger.name %></strong>
+    <strong><%=link_to(passenger.name,passenger_path(passenger)) %></strong>
+    <%=link_to("Edit",edit_passenger_path(passenger))%>
+    <%= link_to("Delete", passenger_path(passenger.id), method: :delete)%>
   </li>
 <% end %>
 </ul>
