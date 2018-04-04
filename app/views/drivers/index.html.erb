@@ -1,9 +1,22 @@
 <h3> Driver's Page</h3>
 
-<ul>
-<% @drivers.each do |driver| %>
-  <li>
-    <strong><%= driver.name %></strong>
-  </li>
-<% end %>
-</ul>
+<main>
+  <table>
+    <tr>
+      <th>Driver ID</th>
+      <th>Name</th>
+      <th>VIN</th>
+      <th>Actions</th>
+    </tr>
+    <% @drivers.each do |driver| %>
+    <tr>
+      <td><%= driver.id %></td>
+      <td><%= link_to(driver.name, driver_path(driver)) %></td>
+      <td><%= driver.vin %></td>
+      <td><%= link_to("Edit", edit_driver_path(driver)) %>
+    <%= link_to("Delete", driver_path(driver.id), method: :delete, data: { confirm: "Are you sure you want to delete #{ driver.name }?" }) %></td>
+
+    </tr>
+    <% end %>
+  </table>
+</main>

@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20180403185120) do
 
   create_table "drivers", force: :cascade do |t|
     t.string "name"
-    t.integer "vin"
+    t.integer "vin" #string, change html too
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
