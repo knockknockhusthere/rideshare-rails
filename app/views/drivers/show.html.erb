@@ -1,6 +1,7 @@
-<h1>Details for <%="#{passenger.name}"%></h1>
-<h3>Name: <%= @passenger.name %></h3>
-<h3>Phone number: <%= @passenger. %></h3>
+<h2> Driver Details</h2>
+<h3>Name: <%= @driver.name %></h3>
+<h3>Driver ID: <%= @driver.id %></h3>
+<h3>Car VIN: <%= @driver.vin %></h3>
 
 <h3>Trips</h3>
 <table>
@@ -9,17 +10,17 @@
     <th>Date</th>
     <th>Rating</th>
     <th>Cost</th>
-    <th>passenger</th>
+    <th>Driver</th>
     <th>Passenger</th>
   </tr>
   <% @trips.each do |trip| %>
   <tr>
-    <% if trip.passenger_id == @passenger.id %>
+    <% if trip.driver_id == @driver.id %>
     <td><%= trip.id %></td>
     <td><%= trip.date %></td>
     <td><%= trip.rating %></td>
     <td><%= (trip.cost) / 100 %></td>
-    <td><%= link_to(trip.passenger_id, passenger_path(@passenger)) %></td>
+    <td><%= link_to(trip.driver_id, driver_path(@driver)) %></td>
     <td><%= link_to(trip.passenger_id, passenger_path(passenger_url))%></td>
     <% end %>
   </tr>
