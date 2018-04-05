@@ -17,9 +17,13 @@ class PassengersController < ApplicationController
 
   def show
     passenger = params[:id]
+    @passenger = Passenger.find(passenger)
+    @trips = Trip.all
   end
 
   def edit
+    passenger = params[:id]
+    @passenger = Passenger.find(passenger)
   end
 
   def update
