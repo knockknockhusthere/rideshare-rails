@@ -1,1 +1,25 @@
 <h2>Details for trip <%= @trip.id %> </h2>
+<h3>Trips</h3>
+<table>
+  <tr>
+    <th>Trip ID</th>
+    <th>Date</th>
+    <th>Rating</th>
+    <th>Cost</th>
+    <th>Driver<th>
+  </tr>
+  <% @trips.each do |trip| %>
+
+    <% if trip.passenger_id == @trip.passenger_id %>
+    <tr>
+    <td><%= trip.id %></td>
+    <td><%= trip.date %></td>
+    <td><%= trip.rating %></td>
+    <td><%= (trip.cost) / 100 %></td>
+    <td><%= link_to(trip.driver.name, driver_path(trip.driver_id)) %></td>
+    <td><%= link_to(trip.passenger.name, passenger_path(trip.passenger_id))%></td>
+
+    </tr>
+    <% end %>
+  <%end %>
+</table>

@@ -5,7 +5,8 @@ class TripsController < ApplicationController
       Passenger.find(params[:passenger_id])
       @trips = @passenger.trips
     else
-    @trips = Trip.all
+      @trips = Trip.all
+    end
   end
 
   def new
@@ -13,7 +14,21 @@ class TripsController < ApplicationController
   end
 
   def create
-    trip = Trip.new(driver_params)
+    trip_attributes = {
+
+      passenger_id: params[:passenger_id],
+
+      driver_id: Driver.all.sample.id,
+
+      date: Date.today,
+
+      rating: nil,
+
+      cost: rand(100...10000)
+    }
+
+    trip = Trip.new(trip_attributes)
+
 
     if trip.save
       redirect_to trips_path
