@@ -1,11 +1,11 @@
-<h2> Driver Details</h2>
+<h2> Drivers List</h2>
 <h3>Name: <%= @driver.name %></h3>
 <h3>Driver ID: <%= @driver.id %></h3>
 <h3>Car VIN: <%= @driver.vin %></h3>
 
 
-<h3>Total Revenue for <%= @driver.name + " #{@driver.total_earnings}" %></h3>
-<h3>Average Rating: <%= @driver.avg_rating %></h3>
+<h3>Total Revenue: <%= number_to_currency(@driver.total_earnings) %></h3>
+<h3>Average Rating: <%= number_with_precision(@driver.avg_rating, precision: 2) %></h3>
 
 
 <h3>Trips</h3>
@@ -21,10 +21,10 @@
 
   <% if trip.driver_id == @driver.id %>
   <tr>
-    <td><%= trip.id %></td>
+    <td><%= link_to(trip.id, trip_path) %></td>
     <td><%= trip.date %></td>
     <td><%= trip.rating %></td>
-    <td><%= (trip.cost) / 100 %></td>
+    <td><%= number_to_currency((trip.cost) / 100) %></td>
     <td><%= link_to(trip.passenger.name, passenger_path(trip.passenger_id))%></td>
   </tr>
   <% end %>

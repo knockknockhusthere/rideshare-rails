@@ -1,6 +1,6 @@
 <h1>Details for <%= @passenger.name %></h1>
 <h3>Phone number: <%= @passenger.phone_num %></h3>
-<h3>Total Trips Cost: <%= @passenger.trips_cost %></h3>
+<h3>Total Trips Cost: <%= number_to_currency(@passenger.trips_cost) %></h3>
 
 <h3>Trips</h3>
 <table>
@@ -15,10 +15,10 @@
 
     <% if trip.passenger_id == @passenger.id %>
     <tr>
-    <td><%= trip.id %></td>
+    <td><%= link_to(trip.id, trip_path) %></td>
     <td><%= trip.date %></td>
     <td><%= trip.rating %></td>
-    <td><%= (trip.cost) / 100 %></td>
+    <td><%= number_to_currency((trip.cost) / 100) %></td>
     <td><%= link_to(trip.driver.name, driver_path(trip.driver_id)) %></td>
     </tr>
     <% end %>
