@@ -1,5 +1,10 @@
 class TripsController < ApplicationController
   def index
+    if params[:index_trips_on_passenger_id]
+      @passenger =
+      Passenger.find(params[:passenger_id])
+      @trips = @passenger.trips
+    else
     @trips = Trip.all
   end
 

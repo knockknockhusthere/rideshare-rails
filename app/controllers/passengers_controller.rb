@@ -27,9 +27,28 @@ class PassengersController < ApplicationController
   end
 
   def update
+    @passenger = passenger.find(params[:id])
+    @passenger.assign_attributes(passenger_params)
+
+    if @passenger.save
+      redirect_to passenger_path(passenger)
+    end
   end
 
   def destroy
+    passenger = passenger.find_by(id: params[:id])
+    passenger.trips.delete_all
+
+    if passenger
+      passenger.destroy
+    end
+
+    redirect_to passengers_path
+  end
+
+  def request_trip
+
+
   end
 
 

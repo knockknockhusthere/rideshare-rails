@@ -4,8 +4,11 @@ Rails.application.routes.draw do
 
   resources :trips
 
-  resources :passengers
+  resources :passengers do
+    resources :trips, only: [:create]
+  end
 
   resources :drivers
+
 
 end
