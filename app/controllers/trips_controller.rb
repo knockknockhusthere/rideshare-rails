@@ -31,11 +31,13 @@ class TripsController < ApplicationController
 
 
     if trip.save
-      redirect_to trips_path
+      redirect_to trip_path(trip.id)
     end
   end
 
   def show
+    trip_id = params[:id]
+    @trip = Trip.find(trip_id)
   end
 
   def edit
