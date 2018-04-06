@@ -27,10 +27,10 @@ class PassengersController < ApplicationController
   end
 
   def update
-    @passenger = passenger.find(params[:id])
-    @passenger.assign_attributes(passenger_params)
+    passenger = Passenger.find(params[:id])
+    passenger.assign_attributes(passenger_params)
 
-    if @passenger.save
+    if passenger.save
       redirect_to passenger_path(passenger)
     end
   end
