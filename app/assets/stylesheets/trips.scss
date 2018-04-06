@@ -2,7 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-section img {
+section {
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  border-radius: 75%;
+}
+
+header h1 {
+  margin: 0;
 }

@@ -17,11 +17,13 @@
 body {
   font-family:'Cormorant Garamond', Helvetica, Times ;
   font-size:1em ;
+  margin: 0;
 }
 
 h1 {
   text-align: center;
-  font-size: 3em
+  font-size: 3em;
+  background-color: lightblue;
 }
 nav ul {
   list-style-type: none;
