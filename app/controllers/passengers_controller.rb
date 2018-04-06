@@ -36,7 +36,7 @@ class PassengersController < ApplicationController
   end
 
   def destroy
-    passenger = passenger.find_by(id: params[:id])
+    passenger = Passenger.find_by(id: params[:id])
     passenger.trips.delete_all
 
     if passenger
