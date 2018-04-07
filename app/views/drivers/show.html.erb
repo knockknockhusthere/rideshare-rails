@@ -1,33 +1,42 @@
-<h2>Details for <%= @driver.name %></h2>
-<h3>Name: <%= @driver.name %></h3>
-<h3>Driver ID: <%= @driver.id %></h3>
-<h3>Car VIN: <%= @driver.vin %></h3>
+<body>
+  <h2>Details for <%= @driver.name %></h2>
+  <h3>Name: <%= @driver.name %></h3>
+  <h3>Driver ID: <%= @driver.id %></h3>
+  <h3>Car VIN: <%= @driver.vin %></h3>
 
 
-<h3>Total Revenue: <%= number_to_currency(@driver.total_earnings) %></h3>
-<h3>Average Rating: <%= number_with_precision(@driver.avg_rating, precision: 2) %></h3>
+  <h3>Total Revenue: <%= number_to_currency(@driver.total_earnings) %></h3>
+  <h3>Average Rating: <%= number_with_precision(@driver.avg_rating, precision: 2) %></h3>
 
 
-<h3><%= @driver.name %>'s Trips</h3>
-<table>
-  <tr>
-    <th>Trip ID</th>
-    <th>Date</th>
-    <th>Rating</th>
-    <th>Cost</th>
-    <th>Passenger</th>
-  </tr>
-  <% @trips.each do |trip| %>
+  <h3><button><%= link_to("Delete this Driver", driver_path(@driver.id), method: :delete, data: { confirm: "Are you sure you want to delete #{ @driver.name }?" }) %></button></h3>
 
-  <% if trip.driver_id == @driver.id %>
-  <tr>
-    <td><%= link_to(trip.id, trip_path) %></td>
-    <td><%= trip.date %></td>
-    <td><%= trip.rating %></td>
-    <td><%= number_to_currency((trip.cost) / 100) %></td>
-    <td><%= link_to(trip.passenger.name, passenger_path(trip.passenger_id))%></td>
-  </tr>
-  <% end %>
 
-  <%end %>
-</table>
+  <h3><%= @driver.name %>'s Trips</h3>
+  <table>
+    <tr>
+      <th>Trip ID</th>
+      <th>Date</th>
+      <th>Rating</th>
+      <th>Cost</th>
+      <th>Passenger</th>
+      <th>Actions</th>
+    </tr>
+    <% @trips.each do |trip| %>
+
+    <% if trip.driver_id == @driver.id %>
+    <tr>
+      <td><%= link_to(trip.id, trip_path) %></td>
+      <td><%= trip.date %></td>
+      <td><%= trip.rating %></td>
+      <td><%= number_to_currency((trip.cost) / 100) %></td>
+      <td><%= link_to(trip.passenger.name, passenger_path(trip.passenger_id))%></td>
+      <td>
+        <button><%= link_to("Delete", driver_path(@driver.id), method: :delete, data: { confirm: "Are you sure you want to delete #{ @driver.name }?" }) %></button>
+      </td>
+    </tr>
+    <% end %>
+
+    <%end %>
+  </table>
+</body>
