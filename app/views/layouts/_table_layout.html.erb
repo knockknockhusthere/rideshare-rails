@@ -1,0 +1,26 @@
+
+<main class="grid_container">
+<section>
+  <ul>
+    <li>Trip ID</li>
+    <li>Date</li>
+    <li>Rating</li>
+    <li>Cost</li>
+    <li>Driver</li>
+  </ul>
+</section>
+
+<% @trips.each do |trip| %>
+
+<% if trip.passenger_id == @passenger.id %>
+
+<section>
+  <ul>
+    <li><%= link_to(trip.id, trip_path) %></li>
+    <li><%= trip.date %></li>
+    <li><%= trip.rating %></li>
+    <li><%= number_to_currency((trip.cost) / 100) %></li>
+    <li><%= link_to(trip.driver.name, driver_path(trip.driver_id)) %></li>
+  </ul>
+</section>
+</main>
