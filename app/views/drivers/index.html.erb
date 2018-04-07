@@ -13,8 +13,8 @@
       <td><%= driver.id %></td>
       <td><%= link_to(driver.name, driver_path(driver)) %></td>
       <td><%= driver.vin %></td>
-      <td><%= link_to("Edit", edit_driver_path(driver)) %>
-    <%= link_to("Delete", driver_path(driver.id), method: :delete, data: { confirm: "Are you sure you want to delete #{ driver.name }?" }) %></td>
+      <td><button><%= link_to("Edit", edit_driver_path(driver)) %></button>
+    <button><%= link_to("Delete", driver_path(driver.id), method: :delete, data: { confirm: "Are you sure you want to delete #{ driver.name }?" }) %></button></td>
 
     </tr>
     <% end %>

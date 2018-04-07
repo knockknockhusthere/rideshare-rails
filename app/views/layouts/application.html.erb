@@ -1,27 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RideShare</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>RideShare</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
+</head>
 
-  <body>
-    <header>
-      <h1>RideShare Program</h1>
-      <nav>
-        <ul>
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "All Drivers", drivers_path %></li>
-          <li><%= link_to "All Passengers", passengers_path %></li>
-          <li><%= link_to "Add Driver", new_driver_path %></li>
-          <li><%= link_to "Add Passenger", new_passenger_path %></li>
-        </ul>
-      </nav>
-    </header>
-    <%= yield %>
-  </body>
-  </html>
+<body>
+  <header>
+    <h1>RideShare</h1>
+    <nav>
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <li class="dropdown">
+          <a class="dropbtn">Drivers</a>
+          <div class="dropdown-content">
+            <%= link_to "All Drivers", drivers_path %>
+            <%= link_to "Add Driver", new_driver_path %>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a class="dropbtn">Passengers</a>
+          <div class="dropdown-content">
+            <%= link_to "All Passengers", passengers_path %>
+            <%= link_to "Add Passenger", new_passenger_path %>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+
+
+  <%= yield %>
+  <footer>&copy; AJTransit 2018</footer>
+</body>
+</html>

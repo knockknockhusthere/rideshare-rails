@@ -1,30 +1,41 @@
-<h1>Details for <%= @passenger.name %></h1>
-<h3>Name: <%= @passenger.name %>
-<h3>Phone Number: <%= @passenger.phone_num %></h3>
-<h3>Total Trips Cost: <%= number_to_currency(@passenger.trips_cost) %></h3>
 
+<h2>Details for <%= @passenger.name %></h2>
+<summary class="flex_container">
+  <h3>Phone number: <%= @passenger.phone_num %></h3>
+  <h3>Total Trips Cost: <%= number_to_currency(@passenger.trips_cost) %></h3>
+</summary>
 
-<h3><%= @passenger.name %>'s Trips</h3>
-<table>
-  <tr>
-    <th>Trip ID</th>
-    <th>Date</th>
-    <th>Rating</th>
-    <th>Cost</th>
-    <th>Driver<th>
-  </tr>
+<h2>Trips</h2>
+
+<main class="grid_container">
+
+  <section>
+    <ul>
+      <li class="first">Trip ID</li>
+      <li class="second">Date</li>
+      <li class="third">Rating</li>
+      <li class="fourth">Cost</li>
+      <li class="fifth">Driver</li>
+    </ul>
+  </section>
+
   <% @trips.each do |trip| %>
 
-    <% if trip.passenger_id == @passenger.id %>
-    <tr>
-    <td><%= link_to(trip.id, trip_path) %></td>
-    <td><%= trip.date %></td>
-    <td><%= trip.rating %></td>
-    <td><%= number_to_currency((trip.cost) / 100) %></td>
-    <td><%= link_to(trip.driver.name, driver_path(trip.driver_id)) %></td>
-    </tr>
-    <% end %>
-  <%end %>
-</table>
+  <% if trip.passenger_id == @passenger.id %>
 
-<%= link_to("Request Trip",passenger_trips_path(@passenger), method: :post) %>
+  <section>
+    <ul>
+      <li class="first_detail"><%= link_to(trip.id, trip_path) %></li>
+      <li class="second_detail"><%= trip.date %></li>
+      <li class="third_detail"><%= trip.rating %></li>
+      <li class="fourth_detail"><%= number_to_currency((trip.cost) / 100) %></li>
+      <li class="fifth_detail"><%= link_to(trip.driver.name, driver_path(trip.driver_id)) %></li>
+    </ul>
+  </section>
+
+
+  <%end%>
+  <%end%>
+<button class="trip_request"><%= link_to("Request Trip",passenger_trips_path(@passenger), method: :post) %></button>
+
+</main>
