@@ -1,4 +1,4 @@
-<h2>Details for trip <%= @trip.id %> </h2>
+<h2>Details for Trip <%= @trip.id %> </h2>
 <h3>Trips</h3>
 <table>
   <tr>
@@ -8,6 +8,7 @@
     <th>Cost</th>
     <th>Driver</th>
     <th>Passenger</th>
+    <th>Actions</th>
   </tr>
 
     <tr>
@@ -23,9 +24,6 @@
     <td><%= number_to_currency((@trip.cost) / 100) %></td>
     <td><%= link_to(@trip.driver.name, driver_path(@trip.driver_id)) %></td>
     <td><%= link_to(@trip.passenger.name, passenger_path(@trip.passenger_id))%></td>
-
+    <td><button><%= link_to("Delete", trip_path(@trip.id), method: :delete, data: { confirm: "Are you sure you want to delete #{ @trip.id }?" }) %></td></button></td>
     </tr>
 </table>
-
-
-<button><%= link_to("Delete", trip_path(@trip.id), method: :delete, data: { confirm: "Are you sure you want to delete #{ @trip.id }?" }) %></td></button>

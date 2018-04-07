@@ -17,6 +17,17 @@ section img {
   border-radius: 85%;
 }
 
-nav{
+nav {
   margin: 1em;
+}
+
+table {
+  display: flex;
+  justify-content: center;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: .5em,
 }

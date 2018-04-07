@@ -7,3 +7,8 @@ table, th, td {
     border-collapse: collapse;
     padding: .5em,
 }
+
+table {
+  display: flex;
+  justify-content: center;
+}
