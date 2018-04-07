@@ -1,8 +1,10 @@
 <h1>Details for <%= @passenger.name %></h1>
-<h3>Phone number: <%= @passenger.phone_num %></h3>
+<h3>Name: <%= @passenger.name %>
+<h3>Phone Number: <%= @passenger.phone_num %></h3>
 <h3>Total Trips Cost: <%= number_to_currency(@passenger.trips_cost) %></h3>
 
-<h3>Trips</h3>
+
+<h3><%= @passenger.name %>'s Trips</h3>
 <table>
   <tr>
     <th>Trip ID</th>
